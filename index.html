@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>기획안 티켓 — 김관우</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1E2A4A; --paper: #F4EDE1;
+    --sans: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    padding: 48px 16px; background: var(--ink); color: var(--ink);
+    font-family: var(--sans); font-weight: 400; letter-spacing: -0.012em;
+    word-break: keep-all; -webkit-font-smoothing: antialiased;
+  }
+  .ticket { display: flex; width: 100%; max-width: 1080px; background: var(--paper); border-radius: 18px; }
+  .main { flex: 1; padding: 48px 56px 52px; }
+
+  /* 상단 메타 */
+  .meta {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font: 600 11px/1 var(--mono); letter-spacing: .22em; text-transform: uppercase;
+    padding-bottom: 14px; border-bottom: 2px solid var(--ink); margin-bottom: 36px;
+  }
+
+  /* 섹션 라벨: 번호 + 영문 + 한글 */
+  .label { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; }
+  .label .no { font: 600 11px/1 var(--mono); background: var(--ink); color: var(--paper); padding: 4px 6px 3px; border-radius: 3px; letter-spacing: .04em; }
+  .label .en { font: 600 11px/1 var(--mono); letter-spacing: .22em; }
+  .label .ko { font-size: 12px; font-weight: 500; letter-spacing: -0.01em; }
+
+  /* 제목: 기본은 가볍게, 핵심어만 굵게 */
+  h1 {
+    font-size: 27px; line-height: 1.48; font-weight: 400; letter-spacing: -0.04em;
+    margin-bottom: 40px;
+  }
+  h1 b { font-weight: 800; }
+
+  section + section { margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--ink); }
+  p { font-size: 15.5px; line-height: 1.8; font-weight: 400; letter-spacing: -0.015em; }
+  p b { font-weight: 700; text-decoration: underline 1.5px; text-underline-offset: 5px; }
+  p .note { display: block; margin-top: 10px; font-size: 13px; font-weight: 500; letter-spacing: -0.005em; }
+
+  ol { list-style: none; counter-reset: n; }
+  ol li {
+    counter-increment: n; display: grid; grid-template-columns: 40px 1fr; align-items: baseline;
+    font-size: 15.5px; line-height: 1.65; font-weight: 500; letter-spacing: -0.02em;
+  }
+  ol li + li { margin-top: 12px; }
+  ol li::before { content: counter(n, decimal-leading-zero); font: 600 13px/1 var(--mono); letter-spacing: .02em; }
+
+  /* 오른쪽 스텁 */
+  .stub {
+    position: relative; width: 220px; flex-shrink: 0; padding: 48px 24px;
+    border-left: 3px dashed var(--ink);
+    display: flex; flex-direction: column; align-items: center; justify-content: space-between; text-align: center;
+  }
+  .stub::before, .stub::after {
+    content: ""; position: absolute; left: -19px; width: 34px; height: 34px;
+    border-radius: 50%; background: var(--ink);
+  }
+  .stub::before { top: -17px; }
+  .stub::after { bottom: -17px; }
+  .stub .small { font: 600 11px/1 var(--mono); letter-spacing: .28em; }
+  .name { font-size: 44px; font-weight: 800; letter-spacing: .32em; writing-mode: vertical-rl; margin: 28px 0; line-height: 1; }
+  .admit { display: flex; flex-direction: column; gap: 8px; align-items: center; }
+  .admit span { font: 600 11px/1 var(--mono); letter-spacing: .2em; }
+  .admit .box { border: 1.5px solid var(--ink); padding: 8px 12px 7px; border-radius: 3px; }
+
+  @media (max-width: 760px) {
+    .ticket { flex-direction: column; }
+    .main { padding: 32px 24px 36px; }
+    .meta { margin-bottom: 28px; }
+    h1 { font-size: 20px; margin-bottom: 32px; }
+    p, ol li { font-size: 15px; }
+    .stub { width: auto; border-left: 0; border-top: 3px dashed var(--ink); padding: 28px 24px; flex-direction: row; }
+    .stub::before, .stub::after { top: -19px; bottom: auto; }
+    .stub::before { left: -17px; }
+    .stub::after { left: auto; right: -17px; }
+    .name { writing-mode: horizontal-tb; font-size: 28px; letter-spacing: .18em; margin: 0; }
+    .admit .date { display: none; }
+  }
+</style>
+</head>
+<body>
+  <article class="ticket">
+    <div class="main">
+      <div class="meta"><span>Proposal Ticket</span><span>Admit One</span></div>
+
+      <div class="label"><span class="no">01</span><span class="en">TITLE</span><span class="ko">제목</span></div>
+      <h1>공백기에도 꾸준히 콘텐츠를 소비하지만 대부분이 이미 경험한 콘텐츠인 것인 <b>아티스트의 팬</b>에게, 입대 전 활동 데이터를 기반으로 구현한 <b>AI를 공식 캐릭터에 이식</b>시켜 팬이 캐릭터가 매일 들려주는 <b>새로운 이야기</b>를 콘텐츠로 소비하고 <b>캐릭터와 대화</b>도 나눈다.</h1>
+
+      <section>
+        <div class="label"><span class="no">02</span><span class="en">SUMMARY</span><span class="ko">기획 한 줄 요약</span></div>
+        <p>입대로 버블과 새 콘텐츠가 끊겨 <b>아티스트와의 접점이 사라진 3년차 팬의 불편</b>을, 입대 전 활동 데이터를 기반으로 만든 AI를 공식 캐릭터(하또/도궁빵)에 이식해 매일 새 이야기를 들려주고 대화도 나누는 서비스로 풀되, 시각적 효과가 약한 챗봇보다 화면에서 목소리, 표정, 동작으로 반응하는 <b>관계형 몰입(XR 미사용)</b>으로 구현하고, CJM 5단계의 흐름을 통해 <b>사용량 기반 과금과 스킨 판매</b>로 수익을 노린다.<span class="note">(단, 캐릭터와의 상호작용이 아티스트와의 접점 회복으로 이어질지는 확실치 않다.)</span></p>
+      </section>
+
+      <section>
+        <div class="label"><span class="no">03</span><span class="en">REASONS</span><span class="ko">근거 세 줄</span></div>
+        <ol>
+          <li>페인포인트가 2가지가 섞여있어 좀 더 명확한 페인포인트 하나로 좁혔다.</li>
+          <li>XR을 쓸 지 말 지에 대해 명시해두지 않았기 때문에 혼동이 없도록 작성했다.</li>
+          <li>좁혀진 페인포인트로 아이디어가 명확해지고, 이는 전역 후에도 사용할 지에 대한 불확실성을 해소시켜준다.</li>
+        </ol>
+      </section>
+    </div>
+
+    <aside class="stub">
+      <span class="small">PLANNER</span>
+      <span class="name">김관우</span>
+      <div class="admit"><span class="date">2026.10.06</span><span class="box">NO. 001</span></div>
+    </aside>
+  </article>
+</body>
+</html>
